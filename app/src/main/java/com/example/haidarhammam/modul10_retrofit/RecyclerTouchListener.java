@@ -13,12 +13,12 @@ import retrofit2.Callback;
 
 public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
-    private GestureDetector gestureDetector;
+    private GestureDetector gDetector;
     private ClickListener clickListener;
 
     public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
         this.clickListener = clickListener;
-        gestureDetector = new GestureDetector( context, new GestureDetector.SimpleOnGestureListener() {
+        gDetector = new GestureDetector( context, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
                 return true;
@@ -38,7 +38,7 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 
         View child = rv.findChildViewUnder(e.getX(), e.getY());
-        if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+        if (child != null && clickListener != null && gDetector.onTouchEvent(e)) {
             clickListener.onClick(child, rv.getChildPosition(child));
         }
         return false;

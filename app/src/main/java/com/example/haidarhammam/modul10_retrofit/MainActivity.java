@@ -1,6 +1,5 @@
 package com.example.haidarhammam.modul10_retrofit;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private final static String API_KEY = "e0e11a75010c2123ec77e4c645f5c614";
     RecyclerView recyclerView;
     List<Movie> movies;
-    String judul,subtitle,rating,deskripsi;
+    String judul,subtitle,rating,keterangan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Toast.makeText(MainActivity.this, " Film yang ke-"+position, Toast.LENGTH_LONG).show();
-//                Intent i = new Intent(getApplicationContext(),DetailActivity.class);
-//                startActivity(i);
             }
 
             @Override
@@ -64,11 +61,10 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<MovieResponse>call, Response<MovieResponse> response) {
                 int statusCode = response.code();
                 movies = response.body().getResults();
-                recyclerView.setAdapter(new com.example.haidarhammam.modul10_retrofit.MoviesAdapters(movies, R.layout.list_item_movie, getApplicationContext()));
+                recyclerView.setAdapter(new com.example.haidarhammam.modul10_retrofit.MovieAdapters(movies, R.layout.list_item_movie, getApplicationContext()));
             }
             @Override
             public void onFailure(Call<MovieResponse>call, Throwable t) {
-                // Log error here since request failed
                 Log.e(TAG, t.toString());
             }
         });

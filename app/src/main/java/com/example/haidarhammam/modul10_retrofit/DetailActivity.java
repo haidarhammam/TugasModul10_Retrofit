@@ -21,7 +21,7 @@ public class DetailActivity extends AppCompatActivity {
         String judul = getI.getStringExtra("judul");
         String sub = "Release Date: "+getI.getStringExtra("tanggal");
         String rating = "Rating: "+getI.getStringExtra("rating");
-        String summary= getI.getStringExtra("deskripsi");
+        String summary= getI.getStringExtra("keterangan");
 
         txtJudul.setText(judul);
         txtSub.setText(sub);
