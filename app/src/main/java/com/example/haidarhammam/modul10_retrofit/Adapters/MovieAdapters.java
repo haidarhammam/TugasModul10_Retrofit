@@ -15,7 +15,7 @@ import com.example.haidarhammam.modul10_retrofit.Models.Movie;
 
 import java.util.List;
 
-class MovieAdapters extends RecyclerView.Adapter<MoviesAdapters.MovieViewHolder> {
+class MovieAdapters extends RecyclerView.Adapter<MovieAdapters.MovieViewHolder> {
     private List<Movie> movies;
     private int rowLayout;
     private Context context;
@@ -41,7 +41,7 @@ class MovieAdapters extends RecyclerView.Adapter<MoviesAdapters.MovieViewHolder>
         this.context = context;
     }
     @Override
-    public MoviesAdapters.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MovieAdapters.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
         return new MovieViewHolder(view);
     }
